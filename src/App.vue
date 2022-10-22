@@ -1,26 +1,31 @@
 <template>
-  <img alt="Vue logo" src="./assets/logo.png">
-  <HelloWorld msg="Welcome to Your Vue.js App"/>
+  <Pokeball />
+  <Search />
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import Pokeball from './components/Pokeball.vue';
+import Search from './components/Search.vue';
 
 export default {
   name: 'App',
   components: {
-    HelloWorld
-  }
+    Pokeball,
+    Search
+}
 }
 </script>
 
 <style>
+body{
+  background:linear-gradient( rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3) ), url('../src/assets/background.png');
+  background-size:cover;
+  overflow: hidden;
+}
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
+  height: 100vh;
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 </style>
