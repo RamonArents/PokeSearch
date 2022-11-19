@@ -1,12 +1,12 @@
 <template>
   <div class="md-5 position-absolute mt-25">
     <div v-if="isOk">
-      <p :name="pokemons" v-for="pokemon in pokemons">{{ pokemon.name }}</p>
+      <p>{{ name }}</p>
     </div>
     <div v-else>
       <p :name="pokemons">Sorry, this pokemon doesn't seem to exist.</p>
     </div>
-    <input v-model="pokemons" @keyup.enter="getPokemon()" type="search" placeholder="Search for Pokemon" />
+    <input id="search" v-model="pokemons" @keyup.enter="getPokemon()" type="search" placeholder="Search for Pokemon" />
   </div>
 </template>
 
@@ -17,16 +17,17 @@ export default {
   name: "Search",
   data: function(){
     return {
-      pokemons: this.pokemons,
+      pokemons: null,
+      name: ' ',
       errorMessage: null,
-      isOk: true
+      isOk: true,
     };
   },
   methods:{
     async getPokemon(){
       try{
         let response = await PokeService.getPokemon(this.pokemons);
-        this.pokemons = response.data;
+        this.name = response.data.name;
         this.isOk = true;
       }
       catch(error){
