@@ -1,12 +1,17 @@
 <template>
   <div class="md-5 position-absolute mt-25">
-    <div v-if="isOk">
-      <p>{{ name }}</p>
+    <div :class="{info: isOk}" v-if="isOk">
+      <p>Name: {{ name }}</p>
+      <p>Type: {{ type }}</p>
+      <p>Moves:</p>
+      <!--TODO: Juiste data hieruit ophalen-->
+      <p v-for="move in moves">{{ move }}</p>
+      <img :src="image" />
     </div>
-    <div v-else>
-      <p :name="pokemons">Sorry, this pokemon doesn't seem to exist.</p>
+    <div v-else-if="errorMessage">
+      <p :name="pokemon">Sorry, this pokemon doesn't seem to exist.</p>
     </div>
-    <input id="search" v-model="pokemons" @keyup.enter="getPokemon()" type="search" placeholder="Search for Pokemon" />
+    <input class="mt-3" id="search" v-model="pokemon" @keyup.enter="getPokemon()" type="search" placeholder="Search for Pokemon" />
   </div>
 </template>
 
@@ -17,17 +22,24 @@ export default {
   name: "Search",
   data: function(){
     return {
-      pokemons: null,
+      pokemon: null,
       name: ' ',
+      type: ' ',
+      image: ' ',
+      moves: null,
       errorMessage: null,
-      isOk: true,
+      isOk: false,
     };
   },
   methods:{
     async getPokemon(){
       try{
-        let response = await PokeService.getPokemon(this.pokemons);
+        let response = await PokeService.getPokemon(this.pokemon);
+        console.log(response.data.moves);
         this.name = response.data.name;
+        this.type = response.data.types[0].type.name;
+        this.moves = response.data.moves;
+        this.image = response.data.sprites.front_default;
         this.isOk = true;
       }
       catch(error){
@@ -45,5 +57,10 @@ p{
 }
 .mt-25{
   margin-top:25rem;
+}
+.info{
+  background-color:black;
+  opacity: 0.8;
+  padding:20px;
 }
 </style>
