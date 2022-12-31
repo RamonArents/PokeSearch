@@ -31,6 +31,7 @@ html{
     animation-timing-function: linear;
     animation-delay: 2s;
     overflow: hidden;
+    margin-bottom:35rem;
 }
 .pokeball::after{
     content: '';
