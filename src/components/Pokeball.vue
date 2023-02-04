@@ -1,10 +1,10 @@
 <template>
-  <div class="pokeball">
-    <div class="pokeball__half pokeball_half--red"></div>
-    <div class="pokeball__half pokeball_half--gray"></div>
-    <div class="pokeball__line"></div>
-    <div class="pokeball__innerCircle"></div>
-  </div>
+    <div class="pokeball">
+        <div class="pokeball__half pokeball_half--red pokeball_half--red_animation"></div>
+        <div class="pokeball__half pokeball_half--gray"></div>
+        <div class="pokeball__line"></div>
+        <div class="pokeball__innerCircle"></div>
+    </div>
 </template>
 
 <script>
@@ -31,7 +31,7 @@ html{
     animation-timing-function: linear;
     animation-delay: 2s;
     overflow: hidden;
-    margin-bottom:35rem;
+    margin-left:15%;
 }
 .pokeball::after{
     content: '';
@@ -58,6 +58,12 @@ html{
 }
 .pokeball_half--red{
     background-color:#ee1515;
+}
+.pokeball_half--red_animation{
+    animation-name: reveal;
+    animation-duration: 1.5s;
+    animation-timing-function: ease-in;
+    animation-delay: 4.5s;
 }
 .pokeball_half--gray{
     background-color:#f0f0f0;
@@ -178,6 +184,23 @@ html{
     to{
         top:10%;
         left:170%;
+    }
+}
+@keyframes reveal {
+    0%{
+        margin-top:auto;
+    }
+    25%{
+        margin-top:-25px;
+    }
+    50%{
+        margin-top:-50px;
+    }
+    75%{
+        margin-top:-75px;
+    }
+    100%{
+        margin-top:-100px;
     }
 }
 </style>

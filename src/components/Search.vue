@@ -1,12 +1,15 @@
 <template>
   <div class="md-5 position-absolute">
+    <!--TODO: Pokeball alleen openmaken wanneer er een pokemon is gevonden-->
+    <Pokeball />
+    <img v-if="isOk" class="image" :src="image" />
     <div :class="{info: isOk}" v-if="isOk">
       <p>Name: {{ name }}</p>
       <p>Type: {{ type }}</p>
       <p>Abilities: <span v-for="ability in abilities">{{ ability.ability.name }}&nbsp;</span></p> 
       <img :src="image" />
     </div>
-    <div v-else-if="errorMessage">
+    <div class="info" v-else-if="errorMessage">
       <p :name="pokemon">Sorry, this pokemon doesn't seem to exist.</p>
     </div>
     <input class="mt-3" id="search" v-model="pokemon" @keyup.enter="getPokemon()" type="search" placeholder="Search for Pokemon" />
@@ -15,9 +18,13 @@
 
 <script>
 import { PokeService } from '@/Services/PokeService';
+import Pokeball from './Pokeball.vue';
 
 export default {
   name: "Search",
+  components: {
+    Pokeball
+  },
   data: function(){
     return {
       pokemon: null,
@@ -74,5 +81,9 @@ input::placeholder{
   opacity: 0.8;
   padding:20px;
   width:500px;
+}
+.image{
+  margin-left:38%;
+  margin-top:-305px;
 }
 </style>

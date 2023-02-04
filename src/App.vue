@@ -1,17 +1,14 @@
 <template>
-  <Pokeball />
   <Search />
 </template>
 
 <script>
-import Pokeball from './components/Pokeball.vue';
 import Search from './components/Search.vue';
 
 export default {
   name: 'App',
   components: {
-    Pokeball,
-    Search
+    Search,
 }
 }
 </script>
