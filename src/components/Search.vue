@@ -1,7 +1,9 @@
 <template>
   <div class="md-5 position-absolute">
     <!--TODO: Pokeball alleen openmaken wanneer er een pokemon is gevonden-->
-    <Pokeball />
+    <div v-if="isOk">
+      <Pokeball />
+    </div>
     <img v-if="isOk" class="image" :src="image" />
     <div :class="{info: isOk}" v-if="isOk">
       <p>Name: {{ name }}</p>
@@ -84,6 +86,6 @@ input::placeholder{
 }
 .image{
   margin-left:38%;
-  margin-top:-305px;
+  margin-top:-500px;
 }
 </style>

@@ -61,7 +61,7 @@ html{
 }
 .pokeball_half--red_animation{
     animation-name: reveal;
-    animation-duration: 1.5s;
+    animation-duration: 5s;
     animation-timing-function: ease-in;
     animation-delay: 4.5s;
 }
@@ -190,17 +190,20 @@ html{
     0%{
         margin-top:auto;
     }
-    25%{
-        margin-top:-25px;
-    }
-    50%{
+    20%{
         margin-top:-50px;
     }
-    75%{
-        margin-top:-75px;
+    40%{
+        margin-top:-100px;
+    }
+    60%{
+        margin-top:-200px;
+    }
+    80%{
+        margin-top:-100px;
     }
     100%{
-        margin-top:-100px;
+        margin-top:0px;
     }
 }
 </style>
