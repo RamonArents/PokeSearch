@@ -29,7 +29,7 @@ html{
     animation-name: catch;
     animation-duration: 2.5s;
     animation-timing-function: linear;
-    animation-delay: 2s;
+    animation-delay: 5.5s;
     overflow: hidden;
     margin-left:15%;
 }
@@ -46,7 +46,7 @@ html{
     animation-name: caught;
     animation-duration: 1.5s;
     animation-timing-function: ease-in;
-    animation-delay: 4.5s;
+    animation-delay: 8s;
 }
 .pokeball__half{
     height: 100%;
@@ -63,7 +63,7 @@ html{
     animation-name: reveal;
     animation-duration: 5s;
     animation-timing-function: ease-in;
-    animation-delay: 4.5s;
+    animation-delay: 0.5s;
 }
 .pokeball_half--gray{
     background-color:#f0f0f0;
@@ -104,7 +104,7 @@ html{
     animation-name: beep;
     animation-duration: 2.5s;
     animation-timing-function: linear;
-    animation-delay: 2s;
+    animation-delay: 5.5s;
 }
 
 @keyframes catch{
